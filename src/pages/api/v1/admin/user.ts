@@ -1,36 +1,41 @@
-import nc from "next-connect"
-import UserModel from "../../models/UserModel"
+import type { NextApiRequest, NextApiResponse } from 'next'
+
+// import UserModel from "../../models/UserModel"
+import ProductModel from '../../models/ProductModel'
 
 const connectDb = require('../../database/mongoose')
 connectDb()
 
-const handler = nc()
+type Data = {
+   
+}
 
-// Model UserModel
+export default async function handler(   
+  req: NextApiRequest,
+  res: NextApiResponse<Data> ){
 
-//  Post Data API
-.post( async(req,res) => {
-    const { name, email, phone } = req.body
-      console.log("Fields", name, email, phone)
-    const newUser = new UserModel({ name, email, phone })
-      try{
-          await newUser.save()
-         res.send("New User Created")
-        
-      }  catch(error){
-           console.log("Error", error)
-      }
-})
+    if (req.method === 'GET') {
+      try {
+        const users = await ProductModel.find({})
+        console.log(users)
+        res.send(users)
+     } catch(error) {
+        console.log("Error", error)
+     }
+    } else {
+      const { name, brand, price, category }  = req.body
+      console.log("Fields", name, brand, price, category)
 
- // Get Data API
-.get(async(req,res) => {
-  try {
-     const users = await UserModel.find({})
-     res.send(users)
-  } catch(error) {
-     console.log("Error", error)
-  }
-})
+    const _data = new ProductModel({ name, brand, price, category })
+    
+    try{
+                await _data.save()
+               res.send("New User Created")
+              
+            }  catch(error){
+                 console.log("Error", error)
+            }
+    
+    }
 
-export default handler
-
+}
