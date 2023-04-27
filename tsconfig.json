@@ -18,6 +18,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/database/mongoose.js", "src/pages/index.tsx", "src/pages/api/v1/admin/product.ts", "src/pages/api/models/ProductModel.ts"],
   "exclude": ["node_modules"]
 }
