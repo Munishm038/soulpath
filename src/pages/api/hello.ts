@@ -1,10 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import UserModel from "../../pages/api/models/UserModel"
-
-const connectDb = require('../api/database/mongoose')
-connectDb()
+// const connectDb = require('../api/database/mongoose')
+// connectDb()
 
 type Data = {
   status: boolean,
