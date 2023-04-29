@@ -2,7 +2,10 @@ const mongoose = require('mongoose')
 
 const userSchema = mongoose.Schema({
     Name : {
-       type : String
+       type : String,
+       required : [ true, "The Name is required..."],
+      //  trim : true,
+      //   maxlength : [ 40, "Name can't be greater then 40 characters"]
     },
     Username : {
        type : String,
@@ -14,14 +17,12 @@ const userSchema = mongoose.Schema({
     Status : {
        type : Number,
       //  default : '1',
-    }
+    },
+}, 
+{ 
+    timestamps : true,
+    versionKey : false,
 }
-// , { 
-//     timestamps: {
-//       createdAt: 'created_at',
-//       updatedAt: 'updated_at'
-//     }
-// }
 )
 
 export default mongoose.models.AdminData || mongoose.model("AdminData", userSchema)

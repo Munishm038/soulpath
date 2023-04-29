@@ -42,22 +42,5 @@ export default async function handler(
                                 message : "Username Wrong..."})
             }
         }
-
-    // try {
-    //     //  const { Username, Password } = req.body
-
-    //     const users = await adminModel.find({ Username: Username, Password: Password })
-
-    //     const token = jwt.sign({ key: users[0]._id }, secretKey, { expiresIn: '24h' })
-
-    //     return res.json({ Token : token })
-         
-
-    //     return res.status(200).json({ data : users })
-    //  } catch(error) {
-    //     console.log("Error", error)
-    //  }
-
-   }  
-
+    }  
 }
