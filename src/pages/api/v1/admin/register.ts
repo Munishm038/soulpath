@@ -50,7 +50,7 @@ export default async function handler(
                         })   
       }
      else {
-             const _update = await adminModel.updateOne({ _id:ID }, {
+             const _update = await adminModel.updateOne({ _id : ID }, {
                                     $set : req.body 
                           })
       try {
