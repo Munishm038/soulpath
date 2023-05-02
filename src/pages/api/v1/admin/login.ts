@@ -1,15 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import adminModel from '../../models/adminModel'
+import adminModel from '../../models/adminModels/adminModel'
 const jwt = require('jsonwebtoken')
 const secretKey = "golu"
 
-// const connectDb = require('../../database/mongoose')
-// connectDb()
-
-
-type Data = {
-   
-}
+type Data = { }
 
 export default async function handler(   
   req: NextApiRequest,

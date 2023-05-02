@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import sunSignsChar from '../../../models/adminModels/sunSignsCharModel'
+import houses from '../../../models/adminModels/houses_dataModel'
 
 const connectDb = require('../../../database/mongoose')
 connectDb()
@@ -13,7 +13,7 @@ export default async function handler(
  if( req.method === 'DELETE' ) {
    
     const { ID } = req.query
-       const _data = await sunSignsChar.findByIdAndDelete(ID)
+       const _data = await houses.findByIdAndDelete(ID)
        if(!_data) {
         return res.json({   status : false,
                            message : 'Record Not deleted...' 
@@ -30,7 +30,7 @@ export default async function handler(
 
    const { ID } = req.query
 
-   let _data = await sunSignsChar.findOne({ _id : ID }) 
+   let _data = await houses.findOne({ _id : ID }) 
  
  if(!_data) {
         return res.json({ Status : false, message : "Record Not Found..." })
